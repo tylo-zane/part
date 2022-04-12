@@ -30,12 +30,7 @@ body {
 	overflow: hidden;
 }
 
-#three {
-	width:  100%;
-	height: 100%;
-}
-
-section {
+main {
 	position: absolute;
 	top:      10%;
 	left:    12.5%;
@@ -64,7 +59,7 @@ code {
 	color: black;
 }
 
-section li + li {
+main li + li {
 	margin-top: 20px;
 }
 
@@ -94,13 +89,6 @@ strong {
 	font-family: HelveticaNowBold;
 }
 
-#VRButton {
-	font-family: HelveticaNowBlack;
-	background-color: #1F7A8C;
-	color: white;
-	font-size: 16px;
-}
-
 .hidden {
 	display: none;
 }
@@ -122,7 +110,7 @@ strong {
 
 @media only screen and (max-width: 992px) {
     /* For mobile phones: */
-    section {
+    main {
 		position: absolute;
 		top: 5%;
 		left: 5%;

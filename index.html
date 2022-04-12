@@ -1,105 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-TCPENR6D4K"></script>
-		<script>
-			window.dataLayer = window.dataLayer || []
-			function gtag(){ dataLayer.push( arguments )}
-			gtag( 'js', new Date())
-			gtag( 'config', 'G-TCPENR6D4K' )
-		</script>
-		<title>PART</title>
-		<!-- include three.js library -->
-		<script src='js/three.js'></script>
-		<!-- include jsartookit -->
-		<script src="jsartoolkit5/artoolkit.min.js"></script>
-		<script src="jsartoolkit5/artoolkit.api.js"></script>
-		<!-- include threex.artoolkit -->
-		<script src="threex/threex-artoolkitsource.js"></script>
-		<script src="threex/threex-artoolkitcontext.js"></script>
-		<script src="threex/threex-arbasecontrols.js"></script>
-		<script src="threex/threex-armarkercontrols.js"></script>
-		<meta charset="utf-8">
-		<meta name="viewport"    content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-		<meta name="description" content="Handy makes defining and recognizing custom hand poses in WebXR a snap.">
-		<meta name="author"      content="Stewart Smith https://stewartsmith.io">
-		<meta name="copyright"   content="Stewart Smith 2020–2021">
-
-		<meta name="twitter:card"         content="summary_large_image">
-		<meta name="twitter:site"         content="@stew_rtsmith">
-		<meta name="twitter:creator"      content="@stew_rtsmith">
-		<meta name="twitter:title"        content="Handy.js">
-		<meta name="twitter:description"  content="Handy makes defining and recognizing custom hand poses in WebXR a snap.">
-		<meta name="twitter:image"        content="https://stewartsmith.io/handy/media/vr-hands.jpg">
-		<meta name="twitter:url"          content="https://stewartsmith.io/handy/">
-		
-		<meta property="og:type"          content="website">
-		<meta property="og:title"         content="Handy.js">
-		<meta property="og:description"   content="Handy makes defining and recognizing custom hand poses in WebXR a snap.">
-		<meta property="og:image"         content="https://stewartsmith.io/handy/media/vr-hands.jpg">
-		<meta property="og:url"           content="https://stewartsmith.io/handy/">
-
-		<link type="text/css" rel="stylesheet" href="styles/base.css">
-		<script type="module" src="scripts/main.js"></script>
-	</head>
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>PART</title>
+   <link rel="stylesheet" type="text/css" href="base.css">
+   <script src="index.js"></script>
+</head>
 	<body>
-		<div id="three"></div>
-		<section>
+		<main>
 			<h1>P.A.R.T.</h1>
 			<h2>Physical Augmented Reality Therapy</h2>
-
-			<br>
-			<br>
-			<strong>Requirements</strong>.
-			This code has been designed for the 
-			<a href="#oc">Oculus Quest</a> and
-			<a href="https://www.microsoft.com/en-us/hololens/hardware" target="_blank">Microsoft
-		 	HoloLens 2</a> headsets, though device support
-			will expand as more devices implement the 
-			<a hrref="https://immersive-web.github.io/webxr-hand-input/">WebXR hand tracking API</a>.
-			<br>
-			<br>
-			<br>
-			<strong id="oc">Oculus Quest Directions</strong>.
-			Be sure your Oculus Quest has all of the latest software updates 
-			installed, including Oculus Browser 15.3.0 or later, then 
-			follow these steps to experience the demo for yourself: 
-			<br>
-			<br>
-			<ol>
-				<li>
-					In the main <strong>Settings</strong> menu
-					navigate to Device → Hands and Controllers.
-					Enable both <strong>Hand Tracking</strong>
-					and <strong>Auto Enable Hands or Controllers</strong>.
-				</li>
-				<li>
-					In <strong>Oculus Browser</strong>
-					visit <a href="chrome://flags/" taget="_blank">chrome://flags/</a>.
-					and search for “hands” in the flags search box.
-				</li>
-				<li>
-					Within the flags page, <strong>enable</strong> 
-					the “WebXR experiences with joints tracking” flag
-					(<code>#webxr-hands</code>).
-				</li>
-				<li>
-					Again, within this flags page,
-					set the “WebXR experiences with joints tracking” flag
-					(<code>#webxr-hands</code>)
-					to <strong>Enabled</strong>.
-				</li>
-				<li>
-					Restart Oculus Browser
-					and visit this site again.
-					Use your hand controllers 
-					to click the “Enter VR” button.
-					Once you are inside the experience put your controllers down,
-					hold your hands out in front of you 
-					so that the headset can see them,
-					and enjoy! 👍  
-				</li>
-			</ol>
-		</section>
+		</main>
 	</body>
 </html>
