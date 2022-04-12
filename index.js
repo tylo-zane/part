@@ -1,29 +1,59 @@
 (function() {
     "use strict";
 
+    const video = document.getElementById("myvideo");
+    const canvas = document.getElementById("canvas");
+    const context = canvas.getContext("2d");
+    let updateNote = document.getElementById("updatenote");
+
+    let isVideo = false;
+    let model = null;
+
     const modelParams = {
-        flipHorizontal: false,   // flip e.g for video 
-        imageScaleFactor: 0.7,  // reduce input image size .
-        maxNumBoxes: 2,        // maximum number of boxes to detect
+        flipHorizontal: true,   // flip e.g for video  
+        maxNumBoxes: 20,        // maximum number of boxes to detect
         iouThreshold: 0.5,      // ioU threshold for non-max suppression
-        scoreThreshold: 0.79,    // confidence threshold for predictions.
-      }
-      
-    const img = document.getElementById('webcam');
- 
+        scoreThreshold: 0.6,    // confidence threshold for predictions.
+    }
+
+    function startVideo() {
+        handTrack.startVideo(video).then(function (status) {
+            console.log("video started", status);
+            if (status) {
+                updateNote.innerText = "Video started. Now tracking"
+                isVideo = true
+                runDetection()
+            } else {
+                updateNote.innerText = "Please enable video"
+            }
+        });
+    }
+
+    function runDetection() {
+        model.detect(video).then(predictions => {
+            console.log("Predictions: ", predictions);
+            model.renderPredictions(predictions, canvas, context, video);
+            if (isVideo) {
+                requestAnimationFrame(runDetection);
+            }
+        });
+    }
+
+    // Load the model.
+    handTrack.load(modelParams).then(lmodel => {
+        // detect objects in the image.
+        model = lmodel
+        updateNote.innerText = "Loaded Model!"
+    });
+
     window.addEventListener("load", initialize);
  
    /**
     * Initializes the webpage by adding event listeners to each button.
     */
     function initialize() {
-        handTrack.startVideo(img);
         console.log("initialized");
-        handTrack.load(modelParams).then(model => {
-            model.detect(img).then(predictions => {
-                console.log('Predictions: ', predictions); 
-            });
-        });
+        startVideo();
     }
  
  })();
