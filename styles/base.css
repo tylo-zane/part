@@ -30,6 +30,11 @@ body {
 	overflow: hidden;
 }
 
+#webcam {
+	width: 1vw;
+	height: 1vh;
+}
+
 main {
 	position: absolute;
 	top:      10%;
