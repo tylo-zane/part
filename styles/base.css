@@ -32,6 +32,7 @@ body {
 
 canvas {
     height: 100vh;
+	width: 100vw;
 	position: absolute;
 	margin-left: auto;
 	margin-right: auto;
@@ -53,6 +54,15 @@ video {
 	height: 100vh;
 	z-index: 2;
 	background-color:rgba(255, 255, 255, 50%);
+}
+
+#cursor {
+	position: absolute;
+	z-index: 3;
+	width: 5vw;
+	height: 5vw;
+	top: 45vw;
+	left: 45vw;
 }
 
 main {

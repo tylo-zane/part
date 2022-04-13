@@ -5,13 +5,16 @@
     const canvas = document.getElementById("canvas");
     const context = canvas.getContext("2d");
     let updateNote = document.getElementById("updatenote");
+    let cursor = document.getElementById("cursor");
+    let handposition = null;
+    let handstate = null;
 
     let isVideo = false;
     let model = null;
 
     const modelParams = {
         flipHorizontal: true,   // flip e.g for video  
-        maxNumBoxes: 3,        // maximum number of boxes to detect
+        maxNumBoxes: 2,        // maximum number of boxes to detect
         iouThreshold: 0.5,      // ioU threshold for non-max suppression
         scoreThreshold: 0.6,    // confidence threshold for predictions.
     }
@@ -24,6 +27,7 @@
                 isVideo = true
                 runDetection()
                 setTimeout(hideLoad, 1000)
+                cursor.classList.remove("hidden");
             } else {
                 updateNote.innerText = "Please enable video"
             }
@@ -32,12 +36,48 @@
 
     function runDetection() {
         model.detect(video).then(predictions => {
-            console.log("Predictions: ", predictions);
+            updateHand(predictions);
             model.renderPredictions(predictions, canvas, context, video);
             if (isVideo) {
                 requestAnimationFrame(runDetection);
             }
         });
+    }
+
+    function updateHand(predictions) {
+        //console.log("Predictions: ", predictions);
+        let hand = null;
+        for (let i = 0; i < predictions.length; i++) {
+            // console.log(predictions[i]);
+            if (predictions[i].label != "face") {
+                hand = predictions[i];
+            }
+        }
+        if (hand != null) {
+            handposition = updateHandPoint(hand);
+            console.log(handposition);
+        }
+    }
+
+    function updateHandPoint(hand) {
+        let ratio = canvas.clientHeight/video.height;
+        let leftAdjustment = 0;
+        if (window.innerWidth/window.innerHeight >= video.width/video.height) {
+            leftAdjustment = 0;
+        }else{
+            leftAdjustment = ((video.width/video.height) * canvas.clientHeight - window.innerWidth)/2;
+        }
+        handstate = hand.label;
+        let bbox = hand.bbox;
+        let x = bbox[0];
+        let y = bbox[1];
+        let w = bbox[2];
+        let h = bbox[3];
+        let hand_center_left = x*ratio + (w*ratio/2) - leftAdjustment;
+        let hand_center_top = y*ratio + (h*ratio/2);
+        cursor.style.left = hand_center_left + "px";
+        cursor.style.top = hand_center_top + "px";
+        return [hand_center_top, hand_center_left];
     }
 
     function hideLoad() {
