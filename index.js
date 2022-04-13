@@ -11,7 +11,7 @@
 
     const modelParams = {
         flipHorizontal: true,   // flip e.g for video  
-        maxNumBoxes: 20,        // maximum number of boxes to detect
+        maxNumBoxes: 3,        // maximum number of boxes to detect
         iouThreshold: 0.5,      // ioU threshold for non-max suppression
         scoreThreshold: 0.6,    // confidence threshold for predictions.
     }
@@ -23,6 +23,7 @@
                 updateNote.innerText = "Video started. Now tracking"
                 isVideo = true
                 runDetection()
+                hideLoad()
             } else {
                 updateNote.innerText = "Please enable video"
             }
@@ -39,6 +40,21 @@
         });
     }
 
+    function hideLoad() {
+        let updateNote = document.getElementById("updatenote");
+        let loading = document.getElementById("loading");
+        updateNote.classList.add("fadeOut");
+        loading.classList.add("fadeOut");
+        setTimeout(hiddenLoad, 3000);
+    }
+
+    function hiddenLoad() {
+        let updateNote = document.getElementById("updatenote");
+        let loading = document.getElementById("loading");
+        updateNote.classList.add("hidden");
+        loading.classList.add("hidden");
+    }
+
     // Load the model.
     handTrack.load(modelParams).then(lmodel => {
         // detect objects in the image.
@@ -49,7 +65,7 @@
     window.addEventListener("load", initialize);
  
    /**
-    * Initializes the webpage by adding event listeners to each button.
+    * Initializes the webpage by starting webcam video.
     */
     function initialize() {
         console.log("initialized");
