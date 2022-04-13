@@ -140,11 +140,11 @@ strong {
 }
 
 .fadeOut {
-	animation: fadeOut ease 3s !important;
-	-webkit-animation: fadeOut ease 3s !important;
-	-moz-animation: fadeOut ease 3s !important;
-	-o-animation: fadeOut ease 3s !important;
-	-ms-animation: fadeOut ease 3s !important;
+	animation: fadeOut ease 1s !important;
+	-webkit-animation: fadeOut ease 1s !important;
+	-moz-animation: fadeOut ease 1s !important;
+	-o-animation: fadeOut ease 1s !important;
+	-ms-animation: fadeOut ease 1s !important;
 }
 
 @font-face {

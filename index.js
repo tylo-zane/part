@@ -23,7 +23,7 @@
                 updateNote.innerText = "Video started. Now tracking"
                 isVideo = true
                 runDetection()
-                hideLoad()
+                setTimeout(hideLoad, 1000)
             } else {
                 updateNote.innerText = "Please enable video"
             }
@@ -45,7 +45,7 @@
         let loading = document.getElementById("loading");
         updateNote.classList.add("fadeOut");
         loading.classList.add("fadeOut");
-        setTimeout(hiddenLoad, 3000);
+        setTimeout(hiddenLoad, 1000);
     }
 
     function hiddenLoad() {
