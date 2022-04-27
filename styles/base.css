@@ -44,8 +44,12 @@ video {
 	position: absolute;
 	width: 848px;
 	height: 480px;
-	z-index: 1;
 	opacity: 0%;
+}
+
+.webcam-container{
+    height: 100vh;
+    width: 100vw;
 }
 
 #background {
