@@ -4,7 +4,7 @@
     const video = document.getElementById("myvideo");
     const canvas = document.getElementById("canvas");
     const context = canvas.getContext("2d");
-    const webcam = new Webcam(video, 'user', canvasElement);
+    const webcam = new Webcam(video, 'user', canvas);
     let updateNote = document.getElementById("updatenote");
     let cursor = document.getElementById("cursor");
     let handposition = null;
@@ -24,12 +24,14 @@
     function startVideo() {
         webcam.start()
             .then(result =>{
+                console.log(result);
                 updateNote.innerText = "Webcam started.";
                 isVideo = true;
                 startHandMagic();
             })
             .catch(err => {
-                    updateNote.innerText = "Please enable video"; 
+                console.log(err);
+                updateNote.innerText = "Please enable video"; 
             });
         /* handTrack.startVideo(video).then(function (status) {
             console.log("video started", status);
@@ -50,7 +52,9 @@
     function startHandMagic() {
         webcam.stream()
             .then(result => {
+                console.log(result);
                 loadModel().then(res => {
+                    console.log(res);
                     updateNote.innerText = "Video started. Now tracking";
                     cameraFrame = runDetection();
                     setTimeout(hideLoad, 1000);
@@ -58,10 +62,12 @@
                     showGuides();
                 })
                 .catch(err => {
+                    console.log(err);
                     updateNote.innerText = "Fail to load hand tracking model, please refresh the page to try again";
                 });
             })
             .catch(err => {
+                console.log(err);
                 updateNote.innerText = "Fail to access camera, please refresh the page to try again"
             });
     }
@@ -76,7 +82,7 @@
         });
     }
 
-    function loadModel() {
+    async function loadModel() {
         return new Promise((resolve, reject) => {
     
             handTrack.load(modelParams).then(lmodel => {
@@ -84,7 +90,8 @@
                 model = lmodel
                 updateNote.innerText = "Loaded Model!"
             }).catch(err => {
-                reject(error);
+                console.log(err);
+                reject(err);
             });
         });
     }

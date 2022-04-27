@@ -4,6 +4,7 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>PART</title>
+   <link rel='stylesheet' type='text/css' media='screen' href='style/webcam.css'>
    <link rel="stylesheet" type="text/css" href="styles/base.css">
    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
@@ -15,8 +16,10 @@
 		<div id="updatenote"> Loading application ...</div>
 		<img id="loading" src="img/loading.png">
 		<div id="background"></div>
-		<video class="videobox canvasbox" autoplay="autoplay"  playsinline width="848" height="480" id="myvideo"></video>
-		<canvas id="canvas" class="canvasbox" width="848" height="480"></canvas>
+		<div id="webcam-container" class="webcam-container col-12 d-none p-0 m-0">
+			<video class="videobox canvasbox" autoplay="autoplay"  playsinline width="848" height="480" id="myvideo"></video>
+			<canvas id="canvas" class="canvasbox" width="848" height="480"></canvas>
+		</div>
 
 		<script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/handtrackjs/dist/handtrack.min.js"></script>
