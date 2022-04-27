@@ -57,7 +57,7 @@
                     updateNote.innerText = "Video started. Now tracking";
                     runDetection();
                     setTimeout(hideLoad, 1000);
-                    cursor.classList.remove("hidden");
+                    // cursor.classList.remove("hidden");
                     showGuides();
                 })
                 .catch(err => {
