@@ -28,6 +28,8 @@
                 runDetection()
                 setTimeout(hideLoad, 1000)
                 cursor.classList.remove("hidden");
+                document.getElementById("hand").classList.remove("hidden")
+                showGuides()
             } else {
                 updateNote.innerText = "Please enable video"
             }
@@ -78,6 +80,15 @@
         cursor.style.left = hand_center_left + "px";
         cursor.style.top = hand_center_top + "px";
         return [hand_center_top, hand_center_left];
+    }
+
+    function showGuides() {
+        let h1 = document.querySelector("h1");
+        let h2 = document.querySelector("h2");
+        h1.classList.remove("hidden");
+        h2.classList.remove("hidden");
+        h1.classList.add("fadeIn");
+        h2.classList.add("fadeIn");
     }
 
     function hideLoad() {

@@ -32,7 +32,6 @@ body {
 
 canvas {
     height: 100vh;
-	width: 100vw;
 	position: absolute;
 	margin-left: auto;
 	margin-right: auto;
@@ -53,12 +52,23 @@ video {
 	width: 100vw;
 	height: 100vh;
 	z-index: 2;
-	background-color:rgba(255, 255, 255, 50%);
+	background-color:rgba(255, 255, 255, 25%);
+	filter: drop-shadow(0 0 0 red); 
+}
+
+#hand {
+	position: absolute;
+	z-index: 3;
+	opacity: 50%;
+  	transform: scaleX(-1) rotate(300deg);
+	width: 120vh;
+	right: 0;
+	bottom: 0;
 }
 
 #cursor {
 	position: absolute;
-	z-index: 3;
+	z-index: 4;
 	width: 5vw;
 	height: 5vw;
 	top: 45vw;
@@ -102,18 +112,25 @@ a {
 	color: #1F7A8C;
 }
 
-h1, h2, h3 {
-	font-weight: bold;
-	font-family: aktiv-grotesk;
+h1, h2 {
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	z-index: 3;
+	text-shadow: 0px 2px 2px rgba(0, 0, 0, .25);
 }
 
 h1 {
-	font-size: 64px;
+	font-family: HelveticaNowMedium;
+	font-size: 24px;
+	top: 2.5vh;
 }
 
 h2 {
-	font-size: 40px;
-	line-height: 60px;
+	font-family: aktiv-grotesk;
+	font-size: 42px;
+	bottom: 0.5vh;
+	font-weight: 300;
 }
 
 h3 {
@@ -157,6 +174,14 @@ strong {
 	-ms-animation: fadeOut ease 1s !important;
 }
 
+.fadeIn {
+	animation: fadeIn ease 3s !important;
+	-webkit-animation: fadeIn ease 3s !important;
+	-moz-animation: fadeIn ease 3s !important;
+	-o-animation: fadeIn ease 3s !important;
+	-ms-animation: fadeIn ease 3s !important;
+}
+
 @font-face {
     font-family: HelveticaNow;
     src: url("./fonts/HelveticaNowText-Regular.otf") format("opentype");
@@ -170,6 +195,11 @@ strong {
 @font-face {
     font-family: HelveticaNowBlack;
     src: url("./fonts/HelveticaNowText-Black.otf") format("opentype");
+}
+
+@font-face {
+    font-family: HelveticaNowMedium;
+    src: url("./fonts/HelveticaNowText-Medium.otf") format("opentype");
 }
 
 @media only screen and (max-width: 992px) {
@@ -242,5 +272,50 @@ strong {
 	}
 	100% {
 	  opacity:0;
+	}
+}
+
+@keyframes fadeIn {
+	0% {
+	  opacity:0;
+	}
+	100% {
+	  opacity:1;
+	}
+}
+  
+@-moz-keyframes fadeIn {
+	0% {
+	  opacity:0;
+	}
+	100% {
+	  opacity:1;
+	}
+}
+  
+@-webkit-keyframes fadeIn {
+	0% {
+	  opacity:0;
+	}
+	100% {
+	  opacity:1;
+	}
+}
+  
+@-o-keyframes fadeIn {
+	0% {
+	  opacity:0;
+	}
+	100% {
+	  opacity:1;
+	}
+}
+  
+@-ms-keyframes fadeIn {
+	0% {
+	  opacity:0;
+	}
+	100% {
+	  opacity:1;
 	}
 }
