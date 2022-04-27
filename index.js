@@ -24,7 +24,7 @@
         webcam.start()
             .then(result =>{
                 console.log(result);
-                updateNote.innerText = "Webcam started.";
+                updateNote.innerText = "Loading model...";
                 isVideo = true;
                 startHandMagic();
             })
