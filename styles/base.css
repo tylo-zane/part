@@ -44,6 +44,7 @@ video {
 	position: absolute;
 	width: 848px;
 	height: 480px;
+	z-index: 1;
 	opacity: 0%;
 }
 
@@ -53,13 +54,12 @@ video {
 	height: 100vh;
 	z-index: 2;
 	background-color:rgba(255, 255, 255, 25%);
-	filter: drop-shadow(0 0 0 red); 
 }
 
 #hand {
 	position: absolute;
 	z-index: 3;
-	opacity: 50%;
+	opacity: 55%;
   	transform: scaleX(-1) rotate(300deg);
 	width: 120vh;
 	right: 0;
@@ -129,7 +129,8 @@ h1 {
 h2 {
 	font-family: aktiv-grotesk;
 	font-size: 42px;
-	bottom: 0.5vh;
+	margin-bottom: 0;
+	bottom: 3vh;
 	font-weight: 300;
 }
 

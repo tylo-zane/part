@@ -4,9 +4,11 @@
     const video = document.getElementById("myvideo");
     const canvas = document.getElementById("canvas");
     const context = canvas.getContext("2d");
+    const webcam = new Webcam(video, 'enviroment');
     let updateNote = document.getElementById("updatenote");
     let cursor = document.getElementById("cursor");
     let handposition = null;
+    let cameraFrame = null;
     let handstate = null;
 
     let isVideo = false;
@@ -20,7 +22,16 @@
     }
 
     function startVideo() {
-        handTrack.startVideo(video).then(function (status) {
+        webcam.start()
+            .then(result =>{
+                updateNote.innerText = "Webcam started. Loading model...";
+                isVideo = true;
+                startHandMagic();
+            })
+            .catch(err => {
+                    updateNote.innerText = "Please enable video"; 
+            });
+        /* handTrack.startVideo(video).then(function (status) {
             console.log("video started", status);
             if (status) {
                 updateNote.innerText = "Video started. Now tracking"
@@ -33,7 +44,26 @@
             } else {
                 updateNote.innerText = "Please enable video"
             }
-        });
+        }); */
+    }
+
+    function startHandMagic() {
+        webcam.stream()
+            .then(result => {
+                loadModel().then(res => {
+                    updateNote.innerText = "Video started. Now tracking";
+                    cameraFrame = runDetection();
+                    setTimeout(hideLoad, 1000);
+                    cursor.classList.remove("hidden");
+                    showGuides();
+                })
+                .catch(err => {
+                    updateNote.innerText = "Fail to load hand tracking model, please refresh the page to try again";
+                });
+            })
+            .catch(err => {
+                updateNote.innerText = "Fail to access camera, please refresh the page to try again"
+            });
     }
 
     function runDetection() {
@@ -43,6 +73,19 @@
             if (isVideo) {
                 requestAnimationFrame(runDetection);
             }
+        });
+    }
+
+    function loadModel() {
+        return new Promise((resolve, reject) => {
+    
+            handTrack.load(modelParams).then(lmodel => {
+                // detect objects in the image.
+                model = lmodel
+                updateNote.innerText = "Loaded Model!"
+            }).catch(err => {
+                reject(error);
+            });
         });
     }
 
@@ -85,10 +128,13 @@
     function showGuides() {
         let h1 = document.querySelector("h1");
         let h2 = document.querySelector("h2");
+        let hand = document.getElementById("hand");
+        hand.classList.remove("hidden");
         h1.classList.remove("hidden");
         h2.classList.remove("hidden");
         h1.classList.add("fadeIn");
         h2.classList.add("fadeIn");
+        hand.classList.add("fadeIn");
     }
 
     function hideLoad() {
@@ -106,12 +152,12 @@
         loading.classList.add("hidden");
     }
 
-    // Load the model.
+/*     // Load the model.
     handTrack.load(modelParams).then(lmodel => {
         // detect objects in the image.
         model = lmodel
         updateNote.innerText = "Loaded Model!"
-    });
+    }); */
 
     window.addEventListener("load", initialize);
  
