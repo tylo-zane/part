@@ -4,7 +4,7 @@
     const video = document.getElementById("myvideo");
     const canvas = document.getElementById("canvas");
     const context = canvas.getContext("2d");
-    const webcam = new Webcam(video, 'enviroment');
+    const webcam = new Webcam(video, 'user', canvasElement);
     let updateNote = document.getElementById("updatenote");
     let cursor = document.getElementById("cursor");
     let handposition = null;
@@ -24,7 +24,7 @@
     function startVideo() {
         webcam.start()
             .then(result =>{
-                updateNote.innerText = "Webcam started. Loading model...";
+                updateNote.innerText = "Webcam started.";
                 isVideo = true;
                 startHandMagic();
             })
