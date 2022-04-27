@@ -8,7 +8,6 @@
     let updateNote = document.getElementById("updatenote");
     let cursor = document.getElementById("cursor");
     let handposition = null;
-    let cameraFrame = null;
     let handstate = null;
 
     let isVideo = false;
@@ -56,7 +55,7 @@
                 loadModel().then(res => {
                     console.log(res);
                     updateNote.innerText = "Video started. Now tracking";
-                    cameraFrame = runDetection();
+                    runDetection();
                     setTimeout(hideLoad, 1000);
                     cursor.classList.remove("hidden");
                     showGuides();
@@ -87,8 +86,9 @@
     
             handTrack.load(modelParams).then(lmodel => {
                 // detect objects in the image.
-                model = lmodel
-                updateNote.innerText = "Loaded Model!"
+                model = lmodel;
+                updateNote.innerText = "Loaded Model!";
+                resolve();
             }).catch(err => {
                 console.log(err);
                 reject(err);
