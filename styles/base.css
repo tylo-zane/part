@@ -62,7 +62,7 @@ video {
 
 #hand {
 	position: absolute;
-	z-index: 3;
+	z-index: 5;
 	opacity: 60%;
   	transform: scaleX(-1) rotate(300deg);
 	width: 125vh;
