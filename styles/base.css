@@ -42,8 +42,8 @@ canvas {
 
 video {
 	position: absolute;
-	width: 848px;
-	height: 480px;
+	width: 1280px;
+	height: 720px;
 	opacity: 0%;
 }
 
@@ -63,10 +63,10 @@ video {
 #hand {
 	position: absolute;
 	z-index: 3;
-	opacity: 55%;
+	opacity: 60%;
   	transform: scaleX(-1) rotate(300deg);
-	width: 120vh;
-	right: 0;
+	width: 125vh;
+	right: -15vw;
 	bottom: 0;
 }
 

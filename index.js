@@ -141,7 +141,6 @@
         h2.classList.remove("hidden");
         h1.classList.add("fadeIn");
         h2.classList.add("fadeIn");
-        hand.classList.add("fadeIn");
     }
 
     function hideLoad() {
