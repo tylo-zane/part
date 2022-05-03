@@ -64,10 +64,10 @@ video {
 	position: absolute;
 	z-index: 5;
 	opacity: 60%;
-  	transform: scaleX(-1) rotate(300deg);
-	width: 125vh;
+  	transform: scaleX(-1) rotate(295deg);
+	width: 130vh;
 	right: -15vw;
-	bottom: 0;
+	bottom: -5vh;
 }
 
 #cursor {
