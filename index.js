@@ -14,7 +14,7 @@
     let model = null;
 
     const modelParams = {
-        flipHorizontal: false,   // flip e.g for video  
+        flipHorizontal: true,   // flip e.g for video  
         maxNumBoxes: 2,        // maximum number of boxes to detect
         iouThreshold: 0.5,      // ioU threshold for non-max suppression
         scoreThreshold: 0.6,    // confidence threshold for predictions.
@@ -129,6 +129,7 @@
         let hand_center_top = y*ratio + (h*ratio/2);
         cursor.style.left = hand_center_left + "px";
         cursor.style.top = hand_center_top + "px";
+        adjustHandOverlay(w);
         return [hand_center_top, hand_center_left];
     }
 
@@ -156,6 +157,44 @@
         let loading = document.getElementById("loading");
         updateNote.classList.add("hidden");
         loading.classList.add("hidden");
+    }
+
+    function adjustHandOverlay(width) {
+        let hand = document.getElementById("hand");
+        let bbox = hand.getBoundingClientRect();
+        let o_width = bbox.width * .5;
+        if (width > o_width) {
+            if(width - o_width > 25) {
+                overlaySize('increase');
+            }
+        } else if (width < o_width) {
+            if(o_width - width > 25) {
+                overlaySize('decrease');
+            }
+        }
+    }
+
+    function  overlaySize(option) {
+        let hand = document.getElementById("hand");
+        let num = window.getComputedStyle(hand).width;
+        num = num.replace('px', '');
+        if (option == 'increase') {
+            num = parseFloat(num) + 8;
+        } else if (option == 'decrease') {
+            num = parseFloat(num) - 8;
+        }  
+        hand.style.width = num + 'px';
+        console.log(window.getComputedStyle(hand).width);
+    }
+
+    function goodShow(){
+        let h2 = document.querySelector("h2");
+        h2.innerText = "GOOD";
+    }
+    
+    function badShow(){
+        let h2 = document.querySelector("h2");
+        h2.innerText = "BAD";
     }
 
 /*     // Load the model.
