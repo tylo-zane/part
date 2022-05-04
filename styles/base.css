@@ -193,6 +193,10 @@ strong {
 	-ms-animation: fadeIn ease 3s !important;
 }
 
+.score {
+	animation: score ease 1s !important;
+}
+
 @font-face {
     font-family: HelveticaNow;
     src: url("./fonts/HelveticaNowText-Regular.otf") format("opentype");
@@ -231,6 +235,18 @@ strong {
 	}
 
 }
+
+@keyframes score {
+	0% {
+		transform: scale(1);
+	  }
+	  50% {
+		transform: scale(1.5);
+	  }
+	  100% {
+		transform: scale(1);
+	  }
+  }
 
 @keyframes rotation {
 	from {
