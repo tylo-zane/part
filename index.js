@@ -130,6 +130,7 @@
         cursor.style.left = hand_center_left + "px";
         cursor.style.top = hand_center_top + "px";
         adjustHandOverlay(w);
+        updateScore(x);
         return [hand_center_top, hand_center_left];
     }
 
@@ -184,7 +185,29 @@
             num = parseFloat(num) - 8;
         }  
         hand.style.width = num + 'px';
-        console.log(window.getComputedStyle(hand).width);
+        //console.log(window.getComputedStyle(hand).width);
+    }
+
+    function updateScore(position) {
+        let hand = document.getElementById("hand");
+        let bbox = hand.getBoundingClientRect();
+        let o_width = bbox.width * .25;
+        let num = window.getComputedStyle(hand).left;
+        num = num.replace('px', '');
+        num = parseFloat(num) + o_width;
+        if (position > num) {
+            if(position - num <= 100) {
+                goodShow();
+            } else {
+                badShow();
+            }
+        } else if (position < num) {
+            if(num - position <= 100) {
+                goodShow();
+            } else {
+                badShow();
+            }
+        }
     }
 
     function goodShow(){
