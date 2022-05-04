@@ -15,7 +15,7 @@
     let model = null;
 
     const modelParams = {
-        flipHorizontal: true,   // flip e.g for video  
+        flipHorizontal: false,   // flip e.g for video  
         maxNumBoxes: 2,        // maximum number of boxes to detect
         iouThreshold: 0.5,      // ioU threshold for non-max suppression
         scoreThreshold: 0.6,    // confidence threshold for predictions.
@@ -171,7 +171,7 @@
                 overlaySize('increase');
             }
         } else if (width < o_width) {
-            if(o_width - width > 25) {
+            if(o_width - width > 27) {
                 overlaySize('decrease');
             }
         }
@@ -180,13 +180,23 @@
     function  overlaySize(option) {
         let hand = document.getElementById("hand");
         let num = window.getComputedStyle(hand).width;
+        let pos = window.getComputedStyle(hand).left;
+        let pos_y = window.getComputedStyle(hand).top;
         num = num.replace('px', '');
+        pos = pos.replace('px', '');
+        pos_y = pos_y.replace('px', '');
         if (option == 'increase') {
-            num = parseFloat(num) + 8;
+            num = parseFloat(num) + 24;
+            pos = parseFloat(pos) - 8;
+            pos_y = parseFloat(pos_y) + 2;
         } else if (option == 'decrease') {
-            num = parseFloat(num) - 8;
+            num = parseFloat(num) - 6;
+            pos = parseFloat(pos) + 2;
+            pos_y = parseFloat(pos_y) - 0.5;
         }  
         hand.style.width = num + 'px';
+        hand.style.left = pos + 'px';
+        hand.style.top = pos_y + 'px';
         //console.log(window.getComputedStyle(hand).width);
     }
 

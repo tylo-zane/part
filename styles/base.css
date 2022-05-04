@@ -65,9 +65,9 @@ video {
 	z-index: 5;
 	opacity: 60%;
   	transform: scaleX(-1) rotate(295deg);
-	width: 130vh;
+	width: 140vh;
 	right: -15vw;
-	bottom: -5vh;
+	bottom: -10vh;
 }
 
 #cursor {
