@@ -215,7 +215,7 @@
         h2.style.color = '#1F7A8C';
         h2.innerText = "GOOD";
         h2.classList.add("score");
-        setTimeout(endShow, 1000);
+        setTimeout(endShow, 5000);
     }
     
     function badShow(){
@@ -223,10 +223,10 @@
         h2.style.color = '#ffb58b';
         h2.innerText = "BAD";
         h2.classList.add("score");
-        setTimeout(endShow, 1000);
+        setTimeout(endShow, 5000);
     }
 
-    function endShow () {
+    function endShow() {
         let h2 = document.querySelector("h2");
         h2.classList.remove("score");
     }
