@@ -215,7 +215,7 @@
     function goodShow(){
         if (globalScore != "GOOD") {
             let h2 = document.querySelector("h2");
-            h2.style.color = '#1F7A8C';
+            h2.style.color = '#6dccdf';
             h2.innerText = "GOOD";
             h2.classList.add("score");
             globalScore = "GOOD";
@@ -227,7 +227,7 @@
         if (globalScore != "BAD") {
             let h2 = document.querySelector("h2");
             h2.style.color = '#ffb58b';
-            h2.innerText = "BAD";
+            h2.innerText = "RE-ALIGN HAND";
             h2.classList.add("score");
             globalScore = "BAD";
             setTimeout(endShow, 1000);
