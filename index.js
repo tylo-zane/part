@@ -212,14 +212,16 @@
 
     function goodShow(){
         let h2 = document.querySelector("h2");
+        h2.style.color = '#1F7A8C';
         h2.innerText = "GOOD";
     }
     
     function badShow(){
         let h2 = document.querySelector("h2");
+        h2.style.color = '#ffb58b';
         h2.innerText = "BAD";
     }
-
+    
 /*     // Load the model.
     handTrack.load(modelParams).then(lmodel => {
         // detect objects in the image.
