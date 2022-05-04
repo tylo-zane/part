@@ -5,6 +5,7 @@
     const canvas = document.getElementById("canvas");
     const context = canvas.getContext("2d");
     const webcam = new Webcam(video, 'user', canvas);
+    let globalScore = null;
     let updateNote = document.getElementById("updatenote");
     let cursor = document.getElementById("cursor");
     let handposition = null;
@@ -148,6 +149,7 @@
     function hideLoad() {
         let updateNote = document.getElementById("updatenote");
         let loading = document.getElementById("loading");
+        document.querySelector("h2").classList.remove("fadeIn");
         updateNote.classList.add("fadeOut");
         loading.classList.add("fadeOut");
         setTimeout(hiddenLoad, 1000);
@@ -211,19 +213,25 @@
     }
 
     function goodShow(){
-        let h2 = document.querySelector("h2");
-        h2.style.color = '#1F7A8C';
-        h2.innerText = "GOOD";
-        h2.classList.add("score");
-        setTimeout(endShow, 5000);
+        if (globalScore != "GOOD") {
+            let h2 = document.querySelector("h2");
+            h2.style.color = '#1F7A8C';
+            h2.innerText = "GOOD";
+            h2.classList.add("score");
+            globalScore = "GOOD";
+            setTimeout(endShow, 1000);
+        }      
     }
     
     function badShow(){
-        let h2 = document.querySelector("h2");
-        h2.style.color = '#ffb58b';
-        h2.innerText = "BAD";
-        h2.classList.add("score");
-        setTimeout(endShow, 5000);
+        if (globalScore != "BAD") {
+            let h2 = document.querySelector("h2");
+            h2.style.color = '#ffb58b';
+            h2.innerText = "BAD";
+            h2.classList.add("score");
+            globalScore = "BAD";
+            setTimeout(endShow, 1000);
+        }  
     }
 
     function endShow() {
