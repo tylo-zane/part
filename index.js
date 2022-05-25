@@ -23,12 +23,12 @@
 
     function startVideo() {
         webcam.facingMode = 'environment';
+        webcam.flip();
         webcam.start()
             .then(result =>{
                 console.log(result);
                 updateNote.innerText = "Loading model...";
                 isVideo = true;
-                webcam.flip();
                 startHandMagic();
             })
             .catch(err => {
