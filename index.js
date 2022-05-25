@@ -22,7 +22,7 @@
     }
 
     function startVideo() {
-        webcam.facingMode = 'environment';
+        webcam.facingMode = 'enviroment';
         webcam.flip();
         webcam.start()
             .then(result =>{
