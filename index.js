@@ -27,6 +27,7 @@
                 console.log(result);
                 updateNote.innerText = "Loading model...";
                 isVideo = true;
+                webcam.flip();
                 startHandMagic();
             })
             .catch(err => {
