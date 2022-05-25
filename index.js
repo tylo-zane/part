@@ -22,6 +22,7 @@
     }
 
     function startVideo() {
+        webcam.facingMode = 'user';
         webcam.start()
             .then(result =>{
                 console.log(result);
