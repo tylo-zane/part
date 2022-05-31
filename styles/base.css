@@ -126,13 +126,18 @@ h1, h2 {
 
 h1 {
 	font-family: HelveticaNowMedium;
-	font-size: 24px;
+	text-shadow:
+   		-1px -1px 0 rgba(255,255,255,0.25),  
+    	1px -1px 0 rgba(255,255,255,0.25),
+    	-1px 1px 0 rgba(255,255,255,0.25),
+    	1px 1px 0 rgba(255,255,255,0.25);
+	font-size: 2rem;
 	top: 2.5vh;
 }
 
 h2 {
 	font-family: aktiv-grotesk;
-	font-size: 42px;
+	font-size: 3rem;
 	margin-bottom: 0;
 	bottom: 3vh;
 	font-weight: 300;
