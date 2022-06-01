@@ -67,9 +67,8 @@ video {
 	opacity: 60%;
   	transform: scaleX(-1) rotate(295deg);
 	width: 100vh;
-	right: -10vw;
+	right: -15vw;
 	bottom: 8vh;
-	overflow: hidden;
 }
 
 #cursor {
