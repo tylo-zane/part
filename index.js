@@ -131,6 +131,7 @@
         cursor.style.left = hand_center_left + "px";
         cursor.style.top = hand_center_top + "px";
         adjustHandOverlay(w);
+        adjustPosition(x, w);
         updateScore(x);
         return [hand_center_top, hand_center_left];
     }
@@ -177,6 +178,19 @@
         }
     }
 
+    function adjustPosition(pos_x, width) {
+        pos_x = pos_x - (width/2);
+        let hand = document.getElementById("hand");
+        let pos = window.getComputedStyle(hand).left;
+        pos = pos.replace('px', '');
+        if ((pos_x - pos) < -25) {
+            pos = parseFloat(pos) - 10;
+        } else if ((pos_x - pos) > 25) {
+            pos = parseFloat(pos) + 10;
+        }
+        hand.style.left = pos + 'px';
+    }
+
     function  overlaySize(option) {
         let hand = document.getElementById("hand");
         let num = window.getComputedStyle(hand).width;
@@ -186,13 +200,13 @@
         pos = pos.replace('px', '');
         pos_y = pos_y.replace('px', '');
         if (option == 'increase') {
-            num = parseFloat(num) + 24;
-            pos = parseFloat(pos) - 8;
-            pos_y = parseFloat(pos_y) + 2;
+            num = parseFloat(num) + 36;
+            pos = parseFloat(pos) - 12;
+            pos_y = parseFloat(pos_y) + 3;
         } else if (option == 'decrease') {
-            num = parseFloat(num) - 6;
-            pos = parseFloat(pos) + 2;
-            pos_y = parseFloat(pos_y) - 0.5;
+            num = parseFloat(num) - 9;
+            pos = parseFloat(pos) + 3;
+            pos_y = parseFloat(pos_y) - 0.75;
         }  
         hand.style.width = num + 'px';
         hand.style.left = pos + 'px';
