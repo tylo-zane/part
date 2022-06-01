@@ -5,8 +5,10 @@
 }
 
 html, body {
-	width:  100%;
-	height: 100%;
+	position: absolute;
+	width:  100vw;
+	height: 100vh;
+	overflow: hidden;
 }
 
 html, body, canvas {
@@ -18,8 +20,6 @@ html, body, canvas {
 
 body {
 	background-color: #DBE2E9;
-	width: 100vw;
-	height: 100vh;
 	color: #080808;
 	font-family: 
 		HelveticaNow, 
@@ -29,7 +29,6 @@ body {
 		'Helvetica', 
 		'Arial', 
 		 sans-serif;
-	overflow: hidden;
 }
 
 canvas {
@@ -68,7 +67,7 @@ video {
 	opacity: 60%;
   	transform: scaleX(-1) rotate(295deg);
 	width: 100vh;
-	right: -15vw;
+	right: -10vw;
 	bottom: 8vh;
 	overflow: hidden;
 }
