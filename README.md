@@ -1,4 +1,4 @@
-# PART
+# P.A.R.T.
 ## Physical Augmented Reality Therapy
 ### Tech Demo
 
