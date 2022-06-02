@@ -1,5 +1,5 @@
-# P.A.R.T.
-## Physical Augmented Reality Therapy
+# PART
+## *Physical Augmented Reality Therapy*
 ### Tech Demo
 
 https://tylo-zane.github.io/part/
