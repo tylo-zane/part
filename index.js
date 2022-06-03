@@ -179,7 +179,7 @@
     }
 
     function adjustPosition(pos_x, width) {
-        pos_x = pos_x - (width/2);
+        pos_x = pos_x - (width * 0.75);
         let hand = document.getElementById("hand");
         let pos = window.getComputedStyle(hand).left;
         pos = pos.replace('px', '');
