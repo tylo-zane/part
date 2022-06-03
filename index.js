@@ -197,7 +197,7 @@
         hand.style.left = pos + 'px';
     }
 
-    function  overlaySize(option) {
+    function overlaySize(option) {
         let hand = document.getElementById("hand");
         let num = window.getComputedStyle(hand).width;
         let pos = window.getComputedStyle(hand).left;
