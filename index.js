@@ -18,7 +18,7 @@
         flipHorizontal: true,   // flip e.g for video  
         maxNumBoxes: 2,        // maximum number of boxes to detect
         iouThreshold: 0.5,      // ioU threshold for non-max suppression
-        scoreThreshold: 0.7,    // confidence threshold for predictions.
+        scoreThreshold: 0.75,    // confidence threshold for predictions.
     }
 
     function startVideo() {
@@ -166,7 +166,7 @@
     function adjustHandOverlay(width) {
         let hand = document.getElementById("hand");
         let bbox = hand.getBoundingClientRect();
-        let o_width = bbox.width * .42;
+        let o_width = bbox.width * .45;
         if (width > o_width) {
             if(width - o_width > 25) {
                 overlaySize('increase');
@@ -185,7 +185,7 @@
         }else{
             leftAdjustment = ((video.width/video.height) * canvas.clientHeight - window.innerWidth)/2;
         }
-        pos_x = pos_x - (leftAdjustment);
+        // pos_x = pos_x - (leftAdjustment);
         let hand = document.getElementById("hand");
         let pos = window.getComputedStyle(hand).left;
         pos = pos.replace('px', '');
@@ -206,13 +206,13 @@
         pos = pos.replace('px', '');
         pos_y = pos_y.replace('px', '');
         if (option == 'increase') {
-            num = parseFloat(num) + 36;
-            pos = parseFloat(pos) - 12;
-            pos_y = parseFloat(pos_y) + 3;
+            num = parseFloat(num) + 48;
+            pos = parseFloat(pos) - 16;
+            pos_y = parseFloat(pos_y) + 4;
         } else if (option == 'decrease') {
-            num = parseFloat(num) - 9;
-            pos = parseFloat(pos) + 3;
-            pos_y = parseFloat(pos_y) - 0.75;
+            num = parseFloat(num) - 12;
+            pos = parseFloat(pos) + 4;
+            pos_y = parseFloat(pos_y) - 1;
         }  
         hand.style.width = num + 'px';
         hand.style.left = pos + 'px';
