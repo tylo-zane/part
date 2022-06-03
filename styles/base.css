@@ -65,7 +65,7 @@ video {
 	position: absolute;
 	z-index: 5;
 	opacity: 60%;
-  	transform: scaleX(-1) rotate(295deg);
+  	transform: rotate(275deg);
 	width: 100vh;
 	right: -15vw;
 	bottom: 8vh;

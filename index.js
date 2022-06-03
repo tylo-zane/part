@@ -166,7 +166,7 @@
     function adjustHandOverlay(width) {
         let hand = document.getElementById("hand");
         let bbox = hand.getBoundingClientRect();
-        let o_width = bbox.width * .5;
+        let o_width = bbox.width * .62;
         if (width > o_width) {
             if(width - o_width > 25) {
                 overlaySize('increase');
@@ -179,14 +179,14 @@
     }
 
     function adjustPosition(pos_x, width) {
-        pos_x = pos_x - (width * 0.75);
+        pos_x = pos_x - width;
         let hand = document.getElementById("hand");
         let pos = window.getComputedStyle(hand).left;
         pos = pos.replace('px', '');
         if ((pos_x - pos) < -25) {
-            pos = parseFloat(pos) - 10;
+            pos = parseFloat(pos) - 12;
         } else if ((pos_x - pos) > 25) {
-            pos = parseFloat(pos) + 10;
+            pos = parseFloat(pos) + 12;
         }
         hand.style.left = pos + 'px';
     }
