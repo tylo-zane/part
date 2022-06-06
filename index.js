@@ -131,7 +131,7 @@
         cursor.style.left = hand_center_left + "px";
         cursor.style.top = hand_center_top + "px";
         adjustHandOverlay(w);
-        adjustPosition(x, w);
+        adjustPosition(x, y);
         updateScore(x);
         return [hand_center_top, hand_center_left];
     }
@@ -178,7 +178,7 @@
         }
     }
 
-    function adjustPosition(pos_x, w) {
+    function adjustPosition(pos_x, pos_y) {
         let leftAdjustment = 0;
         if (window.innerWidth/window.innerHeight >= video.width/video.height) {
             leftAdjustment = 0;
@@ -194,7 +194,15 @@
         } else if ((pos_x - pos) > 25) {
             pos = parseFloat(pos) + 12;
         }
+        let yy = window.getComputedStyle(hand).top;
+        yy = yy.replace('px', '');
+        if ((pos_y - yy) < -25) {
+            yy = parseFloat(yy) - 12;
+        } else if ((pos_y - yy) > 25) {
+            yy = parseFloat(yy) + 12;
+        }
         hand.style.left = pos + 'px';
+        hand.style.top = yy + 'px';
     }
 
     function overlaySize(option) {
