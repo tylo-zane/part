@@ -166,7 +166,7 @@
     function adjustHandOverlay(width) {
         let hand = document.getElementById("hand");
         let bbox = hand.getBoundingClientRect();
-        let o_width = bbox.width * .47;
+        let o_width = bbox.width * .48;
         if (width > o_width) {
             if(width - o_width > 25) {
                 overlaySize('increase');
