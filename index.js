@@ -179,13 +179,13 @@
     }
 
     function adjustPosition(pos_x, w) {
-        /* let leftAdjustment = 0;
+        let leftAdjustment = 0;
         if (window.innerWidth/window.innerHeight >= video.width/video.height) {
             leftAdjustment = 0;
         }else{
             leftAdjustment = ((video.width/video.height) * canvas.clientHeight - window.innerWidth)/2;
-        } */
-        // pos_x = pos_x - (leftAdjustment);
+        }
+        pos_x = pos_x - (leftAdjustment);
         let hand = document.getElementById("hand");
         let pos = window.getComputedStyle(hand).left;
         pos = pos.replace('px', '');
