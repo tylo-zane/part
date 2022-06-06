@@ -196,7 +196,7 @@
         }
         let yy = window.getComputedStyle(hand).top;
         yy = yy.replace('px', '');
-        pos_y = pos_y + (.5 * pos_y);
+        pos_y = pos_y + (.75 * pos_y);
         if ((pos_y - yy) < -25) {
             yy = parseFloat(yy) - 12;
         } else if ((pos_y - yy) > 25) {
