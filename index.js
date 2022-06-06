@@ -185,7 +185,7 @@
         }else{
             leftAdjustment = ((video.width/video.height) * canvas.clientHeight - window.innerWidth)/2;
         }
-        pos_x = pos_x - (0.9 * leftAdjustment);
+        pos_x = pos_x - (0.82 * leftAdjustment);
         let hand = document.getElementById("hand");
         let pos = window.getComputedStyle(hand).left;
         pos = pos.replace('px', '');
